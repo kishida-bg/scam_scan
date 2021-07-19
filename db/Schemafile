@@ -1,0 +1,25 @@
+# encoding: utf-8
+
+create_table "users", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "ユーザー" do |t|
+  t.integer "post_id", null: false
+  t.string "name", limit: 191, default: "", null: false
+  t.string "email", limit: 191, default: "", null: false
+  t.string "password", limit: 191, default: "", null: false
+  t.datetime "updated_at", precision: 6, null: false
+  t.datetime "created_at", precision: 6, null: false
+end
+
+create_table "posts", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "投稿" do |t|
+  t.integer "sns_id", null: false
+  t.string "name", limit: 191, default: "", null: false
+  t.string "desc", limit: 191, default: "", null: false
+  t.integer "searched_count"
+  t.datetime "updated_at", precision: 6, null: false
+  t.datetime "created_at", precision: 6, null: false
+end
+
+create_table "snss", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "SNS" do |t|
+  t.string "name", limit: 191, default: "", null: false
+  t.datetime "updated_at", precision: 6, null: false
+  t.datetime "created_at", precision: 6, null: false
+end
