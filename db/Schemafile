@@ -11,6 +11,7 @@ end
 
 create_table "posts", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "投稿" do |t|
   t.integer "sns_id", null: false
+  t.string "account_id", limit: 191, default: ""
   t.string "name", limit: 191, default: "", null: false
   t.string "desc", limit: 191, default: "", null: false
   t.integer "searched_count"
