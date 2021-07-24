@@ -20,8 +20,8 @@
         <th><%= post.id %></th>
         <th><%= post.name %></th>
         <th><%= post.desc %></th>
-        <th><%= post.created_at %></th>
-        <th><%= post.updated_at %></th>
+        <th><%= post.created_at.to_s(:datetime_jp) %></th>
+        <th><%= post.updated_at.to_s(:datetime_jp) %></th>
       </tr>
     <% end %>
   </tbody>
