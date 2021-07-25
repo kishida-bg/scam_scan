@@ -1,4 +1,8 @@
 class AccountsController < ApplicationController
+  def search
+    @accounts = Account.search(params[:username])
+  end
+
   def index
     @accounts = Account.all
   end
