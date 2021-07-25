@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountsController < ApplicationController
   def search
     @accounts = Account.search(params[:username])
@@ -14,17 +16,14 @@ class AccountsController < ApplicationController
 
   def create
     Account.create(account_params)
-    redirect_to  root_path, notice: '投稿完了'
+    redirect_to root_path, notice: '投稿完了'
   end
 
-  def show
-  end
+  def show; end
 
-  def destroy
-  end
+  def destroy; end
 
-  def update
-  end
+  def update; end
 
   private
 
