@@ -2,7 +2,7 @@
 
 class AccountsController < ApplicationController
   def search
-    @accounts = Account.search(params[:username])
+    @accounts = Account.search(params[:username], params[:sns])
   end
 
   def index
@@ -28,6 +28,6 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:sns_id, :account_id, :name, :desc)
+    params.require(:account).permit(:sns, :username, :name)
   end
 end
