@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 class Account < ApplicationRecord
-  def self.search(username)
-    if username
-      Account.where(['username LIKE ?', "%#{username}%"])
+  def self.search(username, sns=nil)
+    if username && sns
+      Account.where(['username LIKE ?', "%#{username}%"]).where(sns: sns)
     else
       Account.all
     end
