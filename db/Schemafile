@@ -1,26 +1,16 @@
 # encoding: utf-8
 
-create_table "users", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "ユーザー" do |t|
-  t.integer "post_id", null: false
-  t.string "name", limit: 191, default: "", null: false
-  t.string "email", limit: 191, default: "", null: false
-  t.string "password", limit: 191, default: "", null: false
-  t.datetime "updated_at", precision: 6, null: false
-  t.datetime "created_at", precision: 6, null: false
-end
-
-create_table "posts", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "投稿" do |t|
-  t.integer "sns_id", null: false
-  t.string "account_id", limit: 191, default: ""
-  t.string "name", limit: 191, default: "", null: false
-  t.string "desc", limit: 191, default: "", null: false
+create_table "accounts", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "アカウント（POSTデータ）" do |t|
+  t.integer "sns", null: false, comment: "SNSをEnumerizeで管理している"
+  t.string "username", limit: 191, default: "", comment: "@などから始まるログインに必要なID"
+  t.string "name", limit: 191, default: "", null: false, comment: "ユーザー名・アカウント名"
   t.integer "searched_count"
   t.datetime "updated_at", precision: 6, null: false
   t.datetime "created_at", precision: 6, null: false
 end
 
-create_table "snss", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "SNS" do |t|
-  t.string "name", limit: 191, default: "", null: false
+create_table "comments", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "アカウント情報に紐づくコメント(POSTデータ)" do |t|
+  t.string "body", limit: 191, default: "", null: false
   t.datetime "updated_at", precision: 6, null: false
   t.datetime "created_at", precision: 6, null: false
 end

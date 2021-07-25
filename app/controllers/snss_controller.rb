@@ -1,2 +1,0 @@
-class SnsController < ApplicationController
-end

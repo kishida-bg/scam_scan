@@ -1,15 +1,15 @@
-class PostsController < ApplicationController
+class AccountsController < ApplicationController
   def index
-    @posts = Post.all
+    @accounts = Account.all
   end
 
   def new
     # このインスタンス変数がviewで参照できる
-    @post = Post.new
+    @account = Account.new
   end
 
   def create
-    Post.create(post_params)
+    Account.create(account_params)
     redirect_to  root_path, notice: '投稿完了'
   end
 
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:post).permit(:sns_id, :account_id, :name, :desc)
+  def account_params
+    params.require(:account).permit(:sns_id, :account_id, :name, :desc)
   end
 end
