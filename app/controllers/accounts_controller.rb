@@ -19,7 +19,9 @@ class AccountsController < ApplicationController
     redirect_to root_path, notice: '投稿完了'
   end
 
-  def show; end
+  def show
+    @account = Account.find(params[:id])
+  end
 
   def destroy; end
 

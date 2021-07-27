@@ -27,6 +27,7 @@
         <th><%= account.searched_count %></th>
         <th><%= account.created_at.to_s(:datetime_jp) %></th>
         <th><%= account.updated_at.to_s(:datetime_jp) %></th>
+        <td><%= link_to '詳細', account, class: 'btn btn-outline-success'%></td>
       </tr>
     <% end %>
   </tbody>
