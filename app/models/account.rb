@@ -1,7 +1,7 @@
 class Account < ApplicationRecord
   def self.search(username, sns=nil)
     if username && sns
-      Account.where(['username LIKE ?', "%#{username}%"]).where(sns: sns)
+      Account.find_or_create_by(username: username, sns: sns)
     else
       Account.all
     end
