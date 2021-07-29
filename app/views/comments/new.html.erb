@@ -1,0 +1,7 @@
+<h1>comment new</h1>
+<div>
+  <%= form_with url: comments_path, method: :post do |f| %>
+    <%= f.text_area :body %>
+    <%= f.submit %>
+  <% end %>
+</div>
