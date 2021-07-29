@@ -1,33 +1,9 @@
 <div class="container">
   <p>検索</p>
-  <%= form_with url: root_path, method: :get, local: true do |f| %>
+  <%= form_with url: accounts_path, method: :get, local: true do |f| %>
     <%= f.text_field :username %>
     <%= f.select :sns, {'Instagram': 1, 'Twitter': 2, 'LINE': 3}, { include_blank: '選択してください'}, { required: true } %>
     <%= f.submit 'Search', class: "btn btn-success", :name => nil %>
   <% end %>
 </div>
 
-<table class="table table-hover accounts__table">
-  <thead class="thead-dark">
-    <tr>
-      <th>アカウント名</th>
-      <th>アカウントID</th>
-      <th>SNS</th>
-      <th>検索回数</th>
-      <th>作成日時</th>
-      <th>更新日時</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @accounts.each do |account| %>
-      <tr>
-        <th><%= account.name %></th>
-        <th><%= account.username %></th>
-        <th><%= account.sns %></th>
-        <th><%= account.searched_count %></th>
-        <th><%= account.created_at.to_s(:datetime_jp) %></th>
-        <th><%= account.updated_at.to_s(:datetime_jp) %></th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

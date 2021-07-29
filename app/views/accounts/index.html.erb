@@ -1,21 +1,22 @@
-<div class="d-flex align-items-center">
-  <h1>INDEX</h1>
-</div>
-<table class="table table-hover accounts__table">
+<table class="table table-hover account__table">
   <thead class="thead-dark">
     <tr>
       <th>アカウント名</th>
       <th>アカウントID</th>
+      <th>SNS</th>
+      <th>検索回数</th>
       <th>作成日時</th>
+      <th>更新日時</th>
     </tr>
   </thead>
   <tbody>
-    <% @accounts.each do |account| %>
       <tr>
-        <th><%= account.name %></th>
-        <th><%= account.username %></th>
-        <th><%= account.created_at.to_s(:datetime_jp) %></th>
-      </tr>
-    <% end %>
+        <th><%= @account.name %></th>
+        <th><%= @account.username %></th>
+        <th><%= @account.sns %></th>
+        <th><%= @account.searched_count %></th>
+        <th><%= @account.created_at.to_s(:datetime_jp) %></th>
+        <th><%= @account.updated_at.to_s(:datetime_jp) %></th>
+        <td><%= link_to '詳細', @account, class: 'btn btn-outline-success'%></td>
   </tbody>
 </table>
