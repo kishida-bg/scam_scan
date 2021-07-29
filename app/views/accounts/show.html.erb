@@ -1,1 +1,5 @@
-<h1><%= @account.name %></h1>
+<h1><%= @account.username %></h1>
+<p>コメント</p>
+<% @comments.each do |comment| %>
+  <%= comment.body %>
+<% end %>

@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  has_many :comments
+
   def self.search(username, sns)
     if username && sns
       account = Account.find_or_initialize_by(username: username, sns: sns)

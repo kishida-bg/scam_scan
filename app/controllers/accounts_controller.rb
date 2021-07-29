@@ -23,6 +23,8 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
+
+    @comments = Comment.where(account_id: params[:id])
   end
 
   def destroy; end
