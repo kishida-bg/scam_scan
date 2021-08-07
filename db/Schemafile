@@ -10,6 +10,7 @@ create_table "accounts", id: :bigint, unsigned: true, force: :cascade, options: 
 end
 
 create_table "comments", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", comment: "アカウント情報に紐づくコメント(POSTデータ)" do |t|
+  t.integer "account_id", null: false
   t.string "body", limit: 191, default: "", null: false
   t.datetime "updated_at", precision: 6, null: false
   t.datetime "created_at", precision: 6, null: false

@@ -11,18 +11,9 @@ class AccountsController < ApplicationController
     @account = @account.search(params[:username], params[:sns])
   end
 
-  def new
-    # このインスタンス変数がviewで参照できる
-    @account = Account.new
-  end
-
-  def create
-    Account.create(account_params)
-    redirect_to root_path, notice: '投稿完了'
-  end
-
   def show
     @account = Account.find(params[:id])
+    @comments = @account.comments
   end
 
   def destroy; end
