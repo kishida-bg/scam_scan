@@ -2,13 +2,21 @@
 
 class CommentsController < ApplicationController
   def new
-    @account = Account.find(params[:account_id])
     @comment = Comment.new
+    @account = Account.find(params[:id])
   end
 
   def create
-    Comment.create(comment_params)
-    redirect_to root_path, notice: '投稿完了'
+    account = Account.find(params[:comment][:account_id])
+    account.comments.build(comment_params)
+    if account.save
+      redirect_to account_path(account.id)
+      # 現在のshowページに遷移するときはaccount_pathの後にパラメータを指定しないといけない
+      # 成功したとき、（POSTメソッドの時　など）redirect_to
+    else
+      render root
+      # 失敗ならrender
+    end
   end
 
   def destroy; end

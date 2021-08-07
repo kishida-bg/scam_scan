@@ -1,6 +1,14 @@
 <h1><%= @account.username %></h1>
-<p>コメント</p>
+<p>みんなのコメント</p>
 <% @comments.each do |comment| %>
   <%= comment.body %>
 <% end %>
-<%= link_to 'コメントする', new_comment_path %>
+
+<h1>comment new</h1>
+<div>
+  <%= form_with model: Comment.create, method: :post, id: @account.id do |f| %>
+    <%= f.text_area :body %>
+    <%= f.hidden_field :account_id, :value => @account.id %>
+    <%= f.submit %>
+  <% end %>
+</div>
