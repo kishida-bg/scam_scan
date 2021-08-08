@@ -2,7 +2,7 @@
 
 class AccountsController < ApplicationController
   def search
-    @accounts = Account.search(params[:username], params[:sns])
+    # @accounts = Account.search(params[:username], params[:sns])
   end
 
   def index
