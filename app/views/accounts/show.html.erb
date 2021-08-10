@@ -6,7 +6,7 @@
 
 <h1>comment new</h1>
 <div>
-  <%= form_with model: Comment.create, method: :post, id: @account.id do |f| %>
+  <%= form_with model: Comment.create, method: :post do |f| %>
     <%= f.text_area :body %>
     <%= f.hidden_field :account_id, :value => @account.id %>
     <%= f.submit %>
