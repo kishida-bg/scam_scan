@@ -2,27 +2,18 @@
 
 class AccountsController < ApplicationController
   def search
-    
-  end
-
-  def index
-    @account = Account.all
-
-    @account = @account.search(params[:username], params[:sns])
+    @account = Account.search(params[:username], params[:sns])
   end
 
   def show
-    @account = Account.find(params[:id])
-    @comments = @account.comments
+    @account = Account.new
+    @account = Account.search(params[:account][:username], params[:account][:sns])
+    @comments = Comment.where(account_id: params[:id])
   end
-
-  def destroy; end
-
-  def update; end
 
   private
 
   def account_params
-    params.require(:account).permit(:sns, :username, :name)
+    params.require(:account).permit(:sns, :username)
   end
 end
