@@ -1,8 +1,15 @@
 <div class="container">
-  <p>検索</p>
   <%= form_with model: @account, method: :get, local: true do |f| %>
-    <%= f.text_field :username %>
-    <%= f.select :sns, Account.sns.keys.to_a, { include_blank: '選択してください'}, { required: true }  %>
-    <%= f.submit 'Search', class: "btn btn-success", :name => nil %>
+    <div class="row align-items-center">
+      <div class="col ">
+        <%= f.text_field :username, class: "form-control", placeholder: "アカウントID" %>
+      </div>
+      <div class="col-3">
+        <%= f.select :sns, Account.sns.keys.to_a, { include_blank: '選択してください'}, { required: true , class: "form-control col" } %>
+      </div>
+      <div class="col">
+        <%= f.submit '検索', class: "btn btn-outline-secondary", :name => nil %>
+      </div>
+    </div>
   <% end %>
 </div>
