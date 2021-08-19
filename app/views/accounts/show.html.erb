@@ -1,14 +1,44 @@
-<h1><%= @account.username %></h1>
-<p>みんなのコメント</p>
-<% @comments.each do |comment| %>
-  <%= comment.body %>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="container">
+    <a class="navbar-brand text-light" href="/">scamscan</a>
+  </div>
+</nav>
 
-<h1>comment new</h1>
-<div>
-  <%= form_with model: Comment.create, method: :post do |f| %>
-    <%= f.text_area :body %>
-    <%= f.hidden_field :account_id, :value => @account.id %>
-    <%= f.submit %>
-  <% end %>
+<div class="container">
+  <div class="jumbotron bg-light container mt-4 pb-4">
+    <h1 class="display-4"><%= @account.username %></h1>
+    <h4 class="display-5"><%= @account.name %></h4>
+    <p>検索された回数：<%= @account.searched_count %>回</p>
+    <hr class="my-4">
+    <p>役立つ情報があれば書き込んでください</p>
+    <%= form_with model: Comment.create, method: :post, class: "d-flex justify-content-around w-100" do |f| %>
+      <%= f.text_field :body, class: "form-control m-2", placeholder: "例)〇〇で〇〇していた" %>
+      <%= f.hidden_field :account_id, :value => @account.id %>
+      <%= f.submit '口コミを書く', class: "btn btn-outline-secondary m-2", :name => nil %>
+    <% end %>
+  </div>
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" class="w-50">口コミ</th>
+        <th scope="col">投稿日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <th><%= comment.id %></th>
+          <th><%= comment.body %></th>
+          <th><%= comment.created_at.to_s(:datetime_jp) %></th>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
 </div>
+
+
+
+<footer class="fixed-bottom d-flex justify-content-center">
+  <small>© 2021 scam_scam</small>
+</footer>
