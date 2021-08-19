@@ -13,7 +13,7 @@
       <%= f.select :sns, Account.sns.keys.to_a, { include_blank: '選択してください'}, { required: true , class: "form-control col" } %>
     </div>
     <div class="w-25 m-2">
-      <%= f.submit '検索', class: "btn btn-outline-secondary", :name => nil %>
+      <%= f.submit '検索', class: "btn btn-outline-secondary w-100", :name => nil %>
     </div>
   <% end %>
 </div>
