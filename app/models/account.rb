@@ -10,7 +10,6 @@ class Account < ApplicationRecord
       account = Account.find_or_initialize_by(username: username, sns: sns)
       if account.new_record?
         account.save!
-        account
       else
         account.increment!(:searched_count, 1)
       end
