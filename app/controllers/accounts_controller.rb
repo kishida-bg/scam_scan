@@ -2,7 +2,7 @@
 
 class AccountsController < ApplicationController
   def search
-    @account = Account.search(params[:username], params[:sns])
+    @account = Account.search_or_create_account(params[:username], params[:sns])
     if @account
       redirect_to account_path(@account.id)
     end
