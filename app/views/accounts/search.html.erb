@@ -1,7 +1,7 @@
 <div class="container d-flex align-items-center" style="height:600px;">
   <%= form_with model: @account, method: :get, local: true, class: "d-flex justify-content-around w-100" do |f| %>
     <div class="w-50 m-2">
-      <%= f.text_field :username, class: "form-control", placeholder: "検索したいアカウントID" %>
+      <%= f.text_field :username, class: "form-control", placeholder: "検索したいアカウントID", required: true %>
     </div>
     <div class="w-25 m-2">
       <%= f.select :sns, Account.sns.keys.to_a, { include_blank: '選択してください'}, { required: true , class: "form-control col" } %>
@@ -11,7 +11,3 @@
     </div>
   <% end %>
 </div>
-
-<footer class="fixed-bottom d-flex justify-content-center">
-  <small>© 2021 scam_scam</small>
-</footer>
