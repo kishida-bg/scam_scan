@@ -10,10 +10,7 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.new
-    # p "ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー"
     @account = Account.find(params[:id])
-    # p "ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー"
-    # @account = Account.search(params[:account][:username], params[:account][:sns])
     @comments = Comment.where(account_id: params[:id])
   end
 
