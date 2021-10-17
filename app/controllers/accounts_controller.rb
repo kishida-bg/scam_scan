@@ -3,9 +3,7 @@
 class AccountsController < ApplicationController
   def search
     @account = Account.search_or_create_account(params[:username], params[:sns])
-    if @account
-      redirect_to account_path(@account.id)
-    end
+    redirect_to account_path(@account.id) if @account
   end
 
   def show
