@@ -1,22 +1,13 @@
-<table class="table table-hover account__table">
-  <thead class="thead-dark">
-    <tr>
-      <th>アカウント名</th>
-      <th>アカウントID</th>
-      <th>SNS</th>
-      <th>検索回数</th>
-      <th>作成日時</th>
-      <th>更新日時</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <th><%= @account.name %></th>
-        <th><%= @account.username %></th>
-        <th><%= @account.sns %></th>
-        <th><%= @account.searched_count %></th>
-        <th><%= @account.created_at.to_s(:datetime_jp) %></th>
-        <th><%= @account.updated_at.to_s(:datetime_jp) %></th>
-        <td><%= link_to '詳細', @account, class: 'btn btn-outline-success'%></td>
-  </tbody>
-</table>
+<div class="container d-flex align-items-center" style="height:600px;">
+  <%= form_with model: @account, method: :get, local: true, class: "d-flex justify-content-around w-100" do |f| %>
+    <div class="w-50 m-2">
+      <%= f.text_field :username, class: "form-control", placeholder: "検索したいアカウントID", required: true %>
+    </div>
+    <div class="w-25 m-2">
+      <%= f.select :sns, Account.sns.keys.to_a, { include_blank: '選択してください'}, { required: true , class: "form-control col" } %>
+    </div>
+    <div class="w-25 m-2">
+      <%= f.submit '検索', class: "btn btn-outline-secondary w-100", :name => nil %>
+    </div>
+  <% end %>
+</div>
