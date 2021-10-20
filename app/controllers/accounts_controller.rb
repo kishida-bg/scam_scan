@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  def search
+  def index
     @account = Account.search_or_create_account(params[:username], params[:sns])
     redirect_to account_path(@account.id) if @account
   end
