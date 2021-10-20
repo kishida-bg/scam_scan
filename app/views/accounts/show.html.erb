@@ -7,10 +7,16 @@
     <p>検索された回数：<%= @account.searched_count %>回</p>
     <hr class="my-4">
     <p>役立つ情報があれば書き込んでください</p>
-    <%= form_with model: Comment.create, method: :post, class: "d-flex justify-content-around w-100" do |f| %>
-      <%= f.text_field :body, class: "form-control m-2", placeholder: "例)〇〇で〇〇していた", required: true %>
-      <%= f.hidden_field :account_id, :value => @account.id %>
-      <%= f.submit '口コミを書く', class: "btn btn-outline-secondary m-2", :name => nil %>
+    <%= form_with model: Comment.create, method: :post, class: "w-100" do |f| %>
+      <div class="d-flex row">
+        <div class="col-xm-12 col-md-9 m-2">
+          <%= f.text_field :body, class: "form-control", placeholder: "例)〇〇で〇〇していた", required: true %>
+        </div>
+        <%= f.hidden_field :account_id, :value => @account.id %>
+        <div class="col-xm-12 col-md-2 m-2">
+          <%= f.submit '口コミを書く', class: "btn btn-outline-secondary w-100", :name => nil %>
+        </div>
+      </div>
     <% end %>
   </div>
   <table class="table table-striped mt-4">
