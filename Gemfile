@@ -31,6 +31,12 @@ gem 'rails-i18n'
 gem 'enumerize'
 
 gem 'rubocop'
+
+gem 'twitter'
+
+gem 'typhoeus'
+
+gem 'oauth'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
