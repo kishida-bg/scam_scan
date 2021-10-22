@@ -42,9 +42,11 @@
 <% if @tweets.present? %>
 <h2>検索結果</h2>
 <ul>
-  <% @tweets.each_with_index do |tweet, i| %>
-  <div class="list">
-    <li>Tweet<%= i %>: <%= tweet %> </li>
+  <% @tweets.each do |tweet| %>
+  <div>
+    <div><%= tweet[:image] %></div>
+    <div><%= tweet[:name] %></div>
+    <div><%= tweet[:text] %></div>
   </div>
   <% end %>
 </ul>
