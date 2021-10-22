@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
     # @account = Account.new
     @account = Account.find(params[:id])
     @comments = Comment.where(account_id: params[:id])
+    @tweets = Tweet.obtain_tweet
   end
 
   private

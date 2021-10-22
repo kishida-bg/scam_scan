@@ -37,3 +37,4 @@ yarn-debug.log*
 db/schema.drawio
 flowchart.drawio
 schema.drawio
+.env
