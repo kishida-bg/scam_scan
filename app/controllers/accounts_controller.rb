@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
     # @account = Account.new
     @account = Account.find(params[:id])
     @comments = Comment.where(account_id: params[:id])
-    @twitter_user_obj = TwitterApi.obtain_tweet
+    @twitter_user_obj = TwitterApi.obtain_tweet(@account.username)
   end
 
   private

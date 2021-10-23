@@ -1,5 +1,5 @@
 <div class="container d-flex align-items-center" style="height:600px;">
-  <%= form_with model: @account, method: :get, local: true, class: "d-flex row w-100" do |f| %>
+  <%= form_with(model: @account, method: :get, local: true, class: "d-flex row w-100") do |f| %>
     <div class="col-xm-12 col-md-4 m-2">
       <%= f.text_field :username, class: "form-control", placeholder: "検索したいアカウントID", required: true %>
     </div>

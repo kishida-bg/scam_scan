@@ -1,11 +1,11 @@
 class TwitterApi < ApplicationRecord
   include TwitterAccessAuthentication
 
-  def self.obtain_tweet
+  def self.obtain_tweet(username)
     # クライアント情報を呼び出しAPIを叩く許可をもらう
     client = Authorization.init
 
-    twitter_user_obj ||= client.user("@takapon_jp")
+    twitter_user_obj ||= client.user(username)
 
     twitter_user_attributes = {
       "profile_image_url_https": "#{twitter_user_obj.profile_image_url_https}",
