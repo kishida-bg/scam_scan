@@ -1,23 +1,26 @@
 <%= render 'layouts/flash' %>
 
 <div class="container">
-  <div class="jumbotron bg-light container mt-4 pb-4">
-    <h1 class="display-4"><%= @account.username %></h1>
-    <h4 class="display-5"><%= @account.name %></h4>
-    <p>検索された回数：<%= @account.searched_count %>回</p>
-    <hr class="my-4">
-    <p>役立つ情報があれば書き込んでください</p>
-    <%= form_with model: Comment.create, method: :post, class: "w-100" do |f| %>
-      <div class="d-flex row">
-        <div class="col-xm-12 col-md-9 m-2">
-          <%= f.text_field :body, class: "form-control", placeholder: "例)〇〇で〇〇していた", required: true %>
+  <div class="conatiner mt-4 pb-4 d-flex row">
+    <div class="jumbotron bg-light col-xm-12 col-md-9 p-4">
+      <h1 class="display-4"><%= @account.username %></h1>
+      <h4 class="display-5"><%= @account.name %></h4>
+      <p>検索された回数：<%= @account.searched_count %>回</p>
+      <hr class="my-4">
+      <p>役立つ情報があれば書き込んでください</p>
+      <%= form_with model: Comment.create, method: :post, class: "w-100" do |f| %>
+        <div class="d-flex row">
+          <div class="col-xm-12 col-md-9 m-2">
+            <%= f.text_field :body, class: "form-control", placeholder: "例)〇〇で〇〇していた", required: true %>
+          </div>
+          <%= f.hidden_field :account_id, :value => @account.id %>
+          <div class="col-xm-12 col-md-2 m-2">
+            <%= f.submit '口コミを書く', class: "btn btn-outline-secondary w-100", :name => nil %>
+          </div>
         </div>
-        <%= f.hidden_field :account_id, :value => @account.id %>
-        <div class="col-xm-12 col-md-2 m-2">
-          <%= f.submit '口コミを書く', class: "btn btn-outline-secondary w-100", :name => nil %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <%= render 'layouts/twitter_user_obj' %>
   </div>
   <table class="table table-striped mt-4">
     <thead>
@@ -38,8 +41,6 @@
     </tbody>
 </table>
 </div>
-
-
 
 <footer class="fixed-bottom d-flex justify-content-center">
   <small>© 2021 scam_scam</small>
