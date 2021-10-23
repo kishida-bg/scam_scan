@@ -1,0 +1,27 @@
+<% if @twitter_user_obj.present? %>
+  <div id="twitter_user_obj_area" class="jumbotron text-white bg-dark container p-4 col-xm-12 col-md-3">
+    <div class="row d-flex justify-content-flex-start align-items-center mb-2">
+      <div class="col-3 d-flex justify-content-flex-start">
+        <p class="my-auto"><%= image_tag @twitter_user_obj[:profile_image_url_https], class: "rounded-circle border border-secondary" %></p>
+      </div>
+      <div class="col-5">
+        <div><i class="fas fa-user"></i> <%= @twitter_user_obj[:followers_count] %></div>
+      </div>
+      <div class="col-3 d-flex justify-content-center">
+        <%= link_to @twitter_user_obj[:url] do %>
+          <i class="fab fa-twitter-square fa-3x"></i>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <h5><%= @twitter_user_obj[:name] %></h5>
+    </div>
+    <div>
+      <p>@<%= @twitter_user_obj[:screen_name] %></p>
+    </div>
+    <hr class="my-2">
+    <div>
+      <div><%= @twitter_user_obj[:description] %></div>
+    </div>
+  </div>
+<% end %>
