@@ -1,4 +1,4 @@
-module TwitterService
+module TwitterAccessAuthentication
   extend ActiveSupport::Concern
   class Authorization
     def self.init
