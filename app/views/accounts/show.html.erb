@@ -5,7 +5,7 @@
     <div class="jumbotron bg-light col-xm-12 col-md-9 p-4">
       <h1 class="display-4"><%= @account.username %></h1>
       <%# APIで取得したオブジェクトを共通化する必要がある %>
-      <h4 class="display-5"><%= @account.name.present? ? @account.name : @twitter_user_obj[:name] %></h4>
+      <h4 class="display-5"><%= @twitter_user_obj[:name] if @twitter_user_obj %></h4>
       <p>検索された回数：<%= @account.searched_count %>回</p>
       <hr class="my-4">
       <p>役立つ情報があれば書き込んでください</p>
@@ -42,7 +42,3 @@
     </tbody>
 </table>
 </div>
-
-<footer class="fixed-bottom d-flex justify-content-center">
-  <small>© 2021 scam_scam</small>
-</footer>
