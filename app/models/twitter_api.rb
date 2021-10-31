@@ -1,7 +1,7 @@
 class TwitterApi < ApplicationRecord
   include TwitterAccessAuthentication
 
-  def self.obtain_tweet(username)
+  def self.obtain_sns_obj(username)
     # クライアント情報を呼び出しAPIを叩く許可をもらう
     client = Authorization.init
 
