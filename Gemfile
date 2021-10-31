@@ -40,6 +40,14 @@ gem 'oauth'
 
 gem 'dotenv-rails'
 
+gem 'net-http'
+
+gem 'uri'
+
+gem 'json'
+
+gem 'open-uri'
+
 gem 'high_voltage'
 
 gem 'bugsnag'
@@ -73,3 +81,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'nokogiri', '~> 1.11'
