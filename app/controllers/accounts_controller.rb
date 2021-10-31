@@ -10,8 +10,8 @@ class AccountsController < ApplicationController
     # @account = Account.new
     @account = Account.find(params[:id])
     @comments = Comment.where(account_id: params[:id])
-    @twitter_user_obj = TwitterApi.obtain_sns_obj(@account.username) if @account.sns == 'Twitter'
-    @instagram_user_obj = InstagramApi.obtain_sns_obj(@account.username) if @account.sns == 'Instagram'
+    @twitter_user_obj = TwitterApi.obtain_tweet(@account.username) if @account.sns == 'Twitter'
+    @instagram_user_obj = InstagramApi.instagram_user_attributes if @account.sns == 'Instagram'
   end
 
   private

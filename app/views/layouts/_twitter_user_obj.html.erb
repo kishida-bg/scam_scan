@@ -36,16 +36,12 @@
         <div><i class="fas fa-user"></i> <%= @instagram_user_obj[:followers_count] %></div>
       </div>
       <div class="col-4 d-flex justify-content-end">
-        <%= link_to @instagram_user_obj[:url], target: :_blank do %>
-          <i class="fab fa-instagram-square fa-3x"></i>
-        <% end %>
       </div>
     </div>
     <div>
       <h5><%= @instagram_user_obj[:name] %></h5>
     </div>
     <div>
-      <p><%= @instagram_user_obj[:username] %></p>
     </div>
     <hr class="my-2">
     <div>
