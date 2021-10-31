@@ -34,10 +34,6 @@ gem 'rubocop'
 
 gem 'twitter'
 
-gem 'instagram'
-
-gem 'instagram_graph_api'
-
 gem 'typhoeus'
 
 gem 'oauth'
@@ -51,6 +47,10 @@ gem 'uri'
 gem 'json'
 
 gem 'open-uri'
+
+gem 'high_voltage'
+
+gem 'bugsnag'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
