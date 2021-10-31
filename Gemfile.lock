@@ -164,7 +164,6 @@ GEM
       stringio
       time
       uri
-    parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
     popper_js (2.9.3)
