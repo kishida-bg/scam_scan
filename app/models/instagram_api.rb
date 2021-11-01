@@ -2,7 +2,7 @@ class InstagramApi < ApplicationRecord
   class << self
     def obtain_sns_obj(username)
       # HACK:引数をインスタンス変数化するとか絶対ダメな気がするから直したい
-      @username = username
+      @username = username.strip
 
       begin
         user_attributes = {
