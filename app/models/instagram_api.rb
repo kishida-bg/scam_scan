@@ -1,13 +1,11 @@
 class InstagramApi < ApplicationRecord
-  require 'open-uri' # URLにアクセスする為のライブラリを読み込みます。
-  require 'nokogiri' # Nokogiriライブラリを読み込みます。
-
   class << self
     def obtain_sns_obj(username)
+      # HACK:引数をインスタンス変数化するとか絶対ダメな気がするから直したい
       @username = username
 
       begin
-        instagram_user_attributes = {
+        user_attributes = {
           "img": img,
           "name": name,
           "username": username,

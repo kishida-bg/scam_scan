@@ -8,7 +8,7 @@ class TwitterApi < ApplicationRecord
     begin
       twitter_user_obj ||= client.user(username)
 
-      twitter_user_attributes = {
+      user_attributes = {
         "profile_image_url_https": twitter_user_obj.profile_image_url_https.to_s,
         "name": twitter_user_obj.name.to_s,
         "screen_name": twitter_user_obj.screen_name.to_s,
