@@ -7,9 +7,9 @@ class AccountsController < ApplicationController
   end
 
   def show
-    # @account = Account.new
     @account = Account.find(params[:id])
     @comments = Comment.where(account_id: params[:id])
+    # HACK:コントローラーにロジックかきたくない
     @twitter_user_obj = TwitterApi.obtain_sns_obj(@account.username) if @account.sns == 'Twitter'
     @instagram_user_obj = InstagramApi.obtain_sns_obj(@account.username) if @account.sns == 'Instagram'
   end

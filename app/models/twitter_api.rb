@@ -8,7 +8,7 @@ class TwitterApi < ApplicationRecord
     begin
       twitter_user_obj ||= client.user(username)
 
-      twitter_user_attributes = {
+      user_attributes = {
         "profile_image_url_https": twitter_user_obj.profile_image_url_https.to_s,
         "name": twitter_user_obj.name.to_s,
         "screen_name": twitter_user_obj.screen_name.to_s,
@@ -18,15 +18,6 @@ class TwitterApi < ApplicationRecord
       }
     rescue Twitter::Error::NotFound
       nil
-      # twitter_user_attributes = {
-      #   "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
-      #   "name": "---",
-      #   "screen_name": "---",
-      #   "description": "---",
-      #   "profile_banner_url": "---",
-      #   "followers_count": "---",
-      #   "url": ""
-      # }
     end
   end
 end
