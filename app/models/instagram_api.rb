@@ -6,19 +6,23 @@ class InstagramApi < ApplicationRecord
     def obtain_sns_obj(username)
       @username = username
 
-      instagram_user_attributes = {
-        "img": img,
-        "name": name,
-        "username": username,
-        "description": description,
-        "followers_count": followers_count,
-        "url": url
-      }
+      begin
+        instagram_user_attributes = {
+          "img": img,
+          "name": name,
+          "username": username,
+          "description": description,
+          "followers_count": followers_count,
+          "url": url
+        }
+      rescue OpenURI::HTTPError
+        nil
+      end
     end
 
     def doc
       link = "https://dumpor.com/v/#{@username}"
-      @doc ||= Nokogiri::HTML(URI.open(link))
+      @doc = Nokogiri::HTML(URI.open(link))
     end
 
     def name
