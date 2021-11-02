@@ -12,7 +12,6 @@ class InstagramApi < ApplicationRecord
           "followers_count": followers_count(doc),
           "url": url(username)
         }
-
       rescue OpenURI::HTTPError
         nil
       end
