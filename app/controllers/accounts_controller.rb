@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
+  before_action :block_blacklisted_hosts, only: [:show]
+
   def index
     @account = Account.search_or_create_account(params[:username], params[:sns])
     redirect_to account_path(@account.id) if @account
