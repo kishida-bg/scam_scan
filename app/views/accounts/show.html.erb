@@ -15,6 +15,7 @@
             <%= f.text_field :body, class: "form-control", placeholder: "例)〇〇で〇〇していた", required: true %>
           </div>
           <%= f.hidden_field :account_id, :value => @account.id %>
+          <%= f.hidden_field :ip, :value => request.remote_ip %>
           <div class="col-xm-12 col-md-2 m-2">
             <%= f.submit '口コミを書く', class: "btn btn-outline-secondary w-100", :name => nil %>
           </div>
