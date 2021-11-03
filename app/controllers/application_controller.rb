@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def blacklisted?(ip)
     return true if Comment.find_by(ip: ip, blacklist: 1)
+
     false
   end
 
