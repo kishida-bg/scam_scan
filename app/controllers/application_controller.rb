@@ -4,9 +4,7 @@ class ApplicationController < ActionController::Base
   private
 
   def blacklisted?(ip)
-    return true if Comment.find_by(ip: ip, blacklist: 1)
-
-    false
+    Comment.exists?(ip: ip, blacklist: 1)
   end
 
   def block_blacklisted_hosts
