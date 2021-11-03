@@ -3,7 +3,7 @@ class InstagramApi < ApplicationRecord
     def obtain_sns_obj(username)
       doc ||= Nokogiri::HTML(URI.open("https://dumpor.com/v/#{username.strip}"))
 
-      user_attributes = {
+      {
         "img": img(doc),
         "name": name(doc),
         "username": username(doc),
