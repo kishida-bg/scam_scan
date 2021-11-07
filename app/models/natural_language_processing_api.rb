@@ -1,8 +1,11 @@
 class NaturalLanguageProcessingApi < ApplicationRecord
+  include GoogleCloudPlatformAccessAuthentication
+
   def self.obtain_data
-    language_service_client = Google::Cloud::Language.language_service version: :v1
+    client = Authorization.init
+
     document = { content: 'hello world!', type: :PLAIN_TEXT }
-    response = language_service_client.analyze_sentiment document: document
+    response = client.analyze_sentiment document: document
 
     sentiment = response.document_sentiment
 
