@@ -17,10 +17,7 @@ class Comment < ApplicationRecord
 
     sentiment = response.document_sentiment
 
-    score = sentiment.score.to_f.round(1)
-    magnitude = sentiment.magnitude.to_f.round(1)
-
-    write_attribute(:score, score)
-    write_attribute(:magnitude, magnitude)
+    write_attribute(:score, sentiment.score.to_f.round(1))
+    write_attribute(:magnitude, sentiment.magnitude.to_f.round(1))
   end
 end
