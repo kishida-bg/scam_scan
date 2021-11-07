@@ -6,6 +6,8 @@ class Comment < ApplicationRecord
   belongs_to :account
   before_save :save_sentiment_analysis
 
+  # bodyの内容をもとにGCPで用意されているNLPapiで感情分析を行いその値をDBに格納するメソッド
+  # HACK: fatモデルの原因になりそう
   def save_sentiment_analysis
     client = Authorization.init
 
